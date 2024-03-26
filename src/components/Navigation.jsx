@@ -1,42 +1,42 @@
-import React from 'react'
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import React from "react";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  Link,
+  Button,
+} from "@nextui-org/react";
+import { useNavigate } from "react-router-dom";
 
-export const Navigation = () => {
+import { SignOut } from "../hooks/auth";
+
+export const Navigation = (props) => {
+  const navigateTo = useNavigate();
+
   return (
     <Navbar>
-    <NavbarBrand>
-      <Link href="/">
-        <p className="font-bold text-inherit">ACME</p>
-      </Link>
-    </NavbarBrand>
-    <NavbarContent className="hidden sm:flex gap-4" justify="center">
-      <NavbarItem>
-        <Link color="foreground" href="#">
-          Features
+      <NavbarBrand>
+        <Link href="/">
+          <p className="font-bold text-inherit">ACME</p>
         </Link>
-      </NavbarItem>
-      <NavbarItem isActive>
-        <Link href="#" aria-current="page">
-          Customers
-        </Link>
-      </NavbarItem>
-      <NavbarItem>
-        <Link color="foreground" href="#">
-          Integrations
-        </Link>
-      </NavbarItem>
-    </NavbarContent>
-    <NavbarContent justify="end">
-      <NavbarItem className="hidden lg:flex">
-        <Link href="#">Login</Link>
-      </NavbarItem>
-      <NavbarItem>
-        <Button as={Link} color="primary" href="#" variant="flat">
-          Sign Up
-        </Button>
-      </NavbarItem>
-    </NavbarContent>
-  </Navbar>
-  )
-}
+      </NavbarBrand>
 
+      <NavbarContent justify="end">
+        {props.isLoggedIn ? (
+          <NavbarItem>
+            <Button
+              as={Link}
+              color="primary"
+              href="#"
+              variant="flat"
+              onClick={() => SignOut()}
+            >
+              Sign Out
+            </Button>
+          </NavbarItem>
+        ) : null}
+      </NavbarContent>
+    </Navbar>
+  );
+};
