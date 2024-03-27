@@ -23,7 +23,7 @@ export const Navigation = (props) => {
   const navigateTo = useNavigate();
 
   return (
-    <Navbar className="w-full	">
+    <Navbar className="w-full">
       <NavbarBrand>
         <Link href="/">
           <p className="font-bold text-inherit">ACME</p>
