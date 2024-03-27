@@ -9,13 +9,13 @@ import {
 } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 
-import { SignOut } from "../hooks/auth";
+import { SignOut } from "../hooks/Auth";
 
 export const Navigation = (props) => {
   const navigateTo = useNavigate();
 
   return (
-    <Navbar>
+    <Navbar className="w-full	">
       <NavbarBrand>
         <Link href="/">
           <p className="font-bold text-inherit">ACME</p>

@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { Input, Button, user } from "@nextui-org/react";
 import { FaCheck } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { Auth } from "../hooks/auth";
+import { Auth } from "../hooks/Auth";
 
 export const Login = (props) => {
   const navigateTo = useNavigate();
@@ -68,55 +68,57 @@ export const Login = (props) => {
   //   };
 
   return (
-    <div className="flex flex-col gap-4">
-      <Input
-        isRequired
-        isClearable
-        name="email"
-        type="email"
-        label="Email"
-        variant="bordered"
-        placeholder="Enter your email"
-        onClear={() => console.log("input cleared")}
-        className="max-w-xs"
-        value={email}
-        onChange={handleChange}
-      />
-      <Input
-        isRequired
-        isClearable
-        name="password"
-        label="Password"
-        variant="bordered"
-        placeholder="Enter your password"
-        type="password"
-        className="max-w-xs"
-        value={password}
-        onChange={handleChange}
-      />
-      {props.isLoggedIn ? (
-        <Button color="success" isLoading={isLoading}>
-          <FaCheck />
-        </Button>
-      ) : (
-        <Button
-          color="primary"
-          onClick={
-            () =>
-              Auth(
-                email,
-                password,
-                setIsLoading,
-                props.setIsLoggedIn,
-                navigateTo("/")
-              )
-            // navigateTo("/");
-          }
-          isLoading={isLoading}
-        >
-          Login
-        </Button>
-      )}
+    <div className="flex flex-col justify-center items-center h-screen">
+      <div className="flex flex-col gap-4">
+        <Input
+          isRequired
+          isClearable
+          name="email"
+          type="email"
+          label="Email"
+          variant="bordered"
+          placeholder="Enter your email"
+          onClear={() => console.log("input cleared")}
+          className="max-w-xs"
+          value={email}
+          onChange={handleChange}
+        />
+        <Input
+          isRequired
+          isClearable
+          name="password"
+          label="Password"
+          variant="bordered"
+          placeholder="Enter your password"
+          type="password"
+          className="max-w-xs"
+          value={password}
+          onChange={handleChange}
+        />
+        {props.isLoggedIn ? (
+          <Button color="success" isLoading={isLoading}>
+            <FaCheck />
+          </Button>
+        ) : (
+          <Button
+            color="primary"
+            onClick={
+              () =>
+                Auth(
+                  email,
+                  password,
+                  setIsLoading,
+                  props.setIsLoggedIn,
+                  navigateTo("/")
+                )
+              // navigateTo("/");
+            }
+            isLoading={isLoading}
+          >
+            Login
+          </Button>
+        )}
+      </div>
     </div>
   );
 };

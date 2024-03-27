@@ -24,9 +24,7 @@ function App() {
     <NextUIProvider navigate={navigate}>
       <Navigation isLoggedIn={isLoggedIn} />
 
-      <div className="flex flex-col justify-center items-center h-screen">
-        <AppRoutes setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
-      </div>
+      <AppRoutes setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
     </NextUIProvider>
   );
 }

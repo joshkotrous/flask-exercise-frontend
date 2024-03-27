@@ -41,7 +41,8 @@ export async function Auth(
     localStorage.setItem("userEmail", userEmail);
     localStorage.setItem("username", username);
     Cookies.set("token", token);
-
+    Cookies.set("userId", userId);
+    console.log(Cookies.get("userId"));
     console.log("Token created: " + localStorage.getItem("token"));
     console.log(
       "User Info: " +
@@ -70,4 +71,12 @@ export function SignOut() {
     Cookies.remove("token");
     window.location.reload();
   }
+}
+
+export function checkIsLoggedIn() {
+  if (Cookies.get("token") != null) {
+    return true;
+  }
+
+  return false;
 }
