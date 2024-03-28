@@ -13,6 +13,7 @@ function App() {
   const checkLoggedIn = () => {
     if (Cookies.get("token") != null) {
       setIsLoggedIn(true);
+      console.log(Cookies.get("token"));
     }
   };
 

@@ -35,7 +35,7 @@ export const CreateAccount = () => {
         headers: {
           "Content-Type": "application/json",
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5hbWUiOiJ0ZXN0In0.kUPDwe4IY01rLb-oStd9RozicnhOI-YcKhU0uhcgKis",
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjcsIm5hbWUiOiJqb3NoIn0.59bAZ4Dv-g1aPLE9M6yApauBfYfRuZcvrM52B3xqdH8",
         },
         body: JSON.stringify(request),
         cache: "default",
