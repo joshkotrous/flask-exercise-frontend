@@ -45,7 +45,7 @@ const Dashboard = (props) => {
     //     </ListboxItem>
     //   </Listbox>
     // </div>
-    <div className="pt-4 p-8 flex w-full gap-8 ">
+    <div className="pt-4 p-8 flex w-full h-full gap-8 ">
       <DashboardMenu selectedKey={selectedKey} />
       <DashboardContext pageName={selectedKey}>
         {(() => {

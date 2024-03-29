@@ -65,7 +65,7 @@ const Posts = () => {
         </CardBody>
       </Card>
       <h4 className="text-xl pt-4">{posts && posts.length} New Posts</h4>
-      <div className="mt-2 overflow-scroll h-screen">
+      <div className="mt-2 overflow-scroll h-screen no-scrollbar">
         {posts &&
           posts.map(function (data) {
             return (
