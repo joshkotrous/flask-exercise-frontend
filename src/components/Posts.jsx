@@ -14,15 +14,22 @@ import Post from "./Post";
 const Posts = () => {
   const [posts, setPosts] = useState();
   const [newPostContent, setNewPostContent] = useState();
+  const [refresh, setRefresh] = useState(false);
 
   const getPosts = async () => {
-    const posts = await GetAllPosts(Cookies.get("token"));
+    const posts = await GetAllPosts(
+      Cookies.get("userId"),
+      Cookies.get("token")
+    );
     setPosts(posts);
+  };
+  const handleRefresh = () => {
+    setRefresh(!refresh);
   };
 
   useEffect(() => {
     getPosts();
-  }, []);
+  }, [refresh]);
   console.log(posts);
   return (
     <div>
@@ -50,13 +57,15 @@ const Posts = () => {
                 Cookies.get("token")
               );
               setNewPostContent("");
+              handleRefresh();
             }}
           >
             Post
           </Button>
         </CardBody>
       </Card>
-      <div className="pt-8">
+      <h4 className="text-xl pt-4">{posts && posts.length} New Posts</h4>
+      <div className="mt-2 overflow-scroll h-screen">
         {posts &&
           posts.map(function (data) {
             return (
@@ -66,6 +75,8 @@ const Posts = () => {
                 content={data.content}
                 likes={data.likes}
                 token={Cookies.get("token")}
+                isLiked={data.is_liked}
+                onRefresh={handleRefresh}
               />
             );
           })}

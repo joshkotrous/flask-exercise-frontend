@@ -1,8 +1,8 @@
 import React from "react";
 
-export async function GetAllPosts(token) {
+export async function GetAllPosts(userId, token) {
   try {
-    const response = await fetch("http://127.0.0.1:5000/api/posts", {
+    const response = await fetch("http://127.0.0.1:5000/api/posts/" + userId, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
@@ -17,7 +17,6 @@ export async function CreatePost(userId, content, token) {
   const request = {
     user_id: userId,
     content: content,
-    likes: 0,
   };
   try {
     const response = await fetch("http://127.0.0.1:5000/api/posts", {
@@ -32,17 +31,21 @@ export async function CreatePost(userId, content, token) {
   } catch {}
 }
 
-export async function LikePost(postId, token) {
+export async function LikePost(userId, postId, token) {
+  const request = {
+    user_id: userId,
+    post_id: postId,
+  };
   try {
-    const response = await fetch(
-      "http://127.0.0.1:5000/api/posts/" + postId + "/like",
-      {
-        method: "POST",
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      }
-    );
+    const response = await fetch("http://127.0.0.1:5000/api/posts/like", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+
+        Authorization: "Bearer " + token,
+      },
+      body: JSON.stringify(request),
+    });
     return response;
   } catch {}
 }
