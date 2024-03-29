@@ -29,14 +29,14 @@ const DashboardMenu = (props) => {
           Posts
         </ListboxItem>
         <ListboxItem
-          // href="/settings"
+          href="/users"
           className={
             props.selectedKey === "Users"
               ? "bg-[hsl(var(--nextui-default))]"
               : "hover:bg-default-100/80"
           }
           selectedIcon=" "
-          key="People"
+          key="users"
           style={{ color: "black" }}
         >
           Users

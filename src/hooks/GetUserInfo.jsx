@@ -50,3 +50,17 @@ export async function UpdateUserInfo(
   } catch {}
   return;
 }
+
+export async function GetAllUsers(token) {
+  try {
+    const response = await fetch("http://127.0.0.1:5000/api/users", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+      cache: "default",
+    });
+    return response.json();
+  } catch {}
+  return;
+}

@@ -34,6 +34,10 @@ export const AppRoutes = (props) => {
         path="/settings"
         element={<Dashboard isLoggedIn={props.isLoggedIn} />}
       />
+      <Route
+        path="/users"
+        element={<Dashboard isLoggedIn={props.isLoggedIn} />}
+      />
     </Routes>
   );
 };

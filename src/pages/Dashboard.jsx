@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import DashboardMenu from "../components/DashboardMenu";
 import DashboardContext from "../components/DashboardContext";
 import Settings from "../components/Settings";
+import Users from "../components/Users";
+import Posts from "../components/Posts";
 
 const Dashboard = (props) => {
   const navigateTo = useNavigate();
@@ -21,6 +23,8 @@ const Dashboard = (props) => {
       setSelectedKey("posts");
     } else if (url.includes("/settings")) {
       setSelectedKey("settings");
+    } else if (url.includes("/users")) {
+      setSelectedKey("users");
     } else {
       setSelectedKey("posts");
     }
@@ -46,11 +50,11 @@ const Dashboard = (props) => {
       <DashboardContext pageName={selectedKey}>
         {(() => {
           if (selectedKey === "posts") {
-            return <div>posts</div>;
+            return <Posts />;
           } else if (selectedKey === "settings") {
             return <Settings />;
-          } else {
-            return <div>catch all</div>;
+          } else if (selectedKey === "users") {
+            return <Users />;
           }
         })()}
       </DashboardContext>

@@ -41,7 +41,9 @@ export const CreateAccount = () => {
         cache: "default",
       });
       console.log(response.status);
-      Auth(email, password, null, props.setIsLoggedIn, navigateTo("/"));
+      Auth(email, password, null, props.setIsLoggedIn);
+      navigateTo("/");
+
       // Handle successful response here
     } catch (error) {
       console.error("Error:", error);

@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect } from "react";
 import { Button, Link } from "@nextui-org/react";
 import Dashboard from "./Dashboard";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ export const Home = (props) => {
   if (props.isLoggedIn) {
     navigateTo("/posts");
   }
+
   console.log(props.isLoggedIn);
   return (
     <div className="flex flex-col justify-center items-center h-screen">
