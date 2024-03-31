@@ -13,11 +13,13 @@ export async function GetAllPosts(userId, token) {
   } catch {}
 }
 
-export async function CreatePost(userId, content, token) {
+export async function CreatePost(userId, content, token, attachments) {
   const request = {
     user_id: userId,
     content: content,
+    attachments: attachments,
   };
+  console.log(request);
   try {
     const response = await fetch("http://127.0.0.1:5000/api/posts", {
       method: "POST",
