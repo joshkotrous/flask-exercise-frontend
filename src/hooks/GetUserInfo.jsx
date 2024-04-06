@@ -2,13 +2,16 @@ import React from "react";
 
 export async function GetUserInfo(userId, token) {
   try {
-    const response = await fetch("http://127.0.0.1:5000/api/users/" + userId, {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-      cache: "default",
-    });
+    const response = await fetch(
+      process.env.REACT_APP_API_BASE_URL + "/users/" + userId,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+        cache: "default",
+      }
+    );
 
     return response.json();
   } catch {}
@@ -34,14 +37,17 @@ export async function UpdateUserInfo(
     if (typeof isLoading === "function") {
       isLoading(true);
     }
-    const response = await fetch("http://127.0.0.1:5000/api/users/" + userId, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + token,
-      },
-      body: JSON.stringify(request),
-    });
+    const response = await fetch(
+      process.env.REACT_APP_API_BASE_URL + "/users/" + userId,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+        body: JSON.stringify(request),
+      }
+    );
     console.log(response);
     if (typeof isLoading === "function") {
       isLoading(false);
@@ -53,13 +59,16 @@ export async function UpdateUserInfo(
 
 export async function GetAllUsers(token) {
   try {
-    const response = await fetch("http://127.0.0.1:5000/api/users", {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-      cache: "default",
-    });
+    const response = await fetch(
+      process.env.REACT_APP_API_BASE_URL + "/users",
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+        cache: "default",
+      }
+    );
     return response.json();
   } catch {}
   return;
