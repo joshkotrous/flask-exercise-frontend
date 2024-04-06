@@ -30,20 +30,6 @@ const Dashboard = (props) => {
   }, [url]);
 
   return (
-    // <div className="border-primary border-2	border-solid border-black border rounded-md">
-    //   <Listbox className="p-8 ">
-    //     {" "}
-    //     <ListboxItem className="py-2 " key="new">
-    //       New file
-    //     </ListboxItem>
-    //     <ListboxItem className="py-2" key="copy">
-    //       Copy link
-    //     </ListboxItem>
-    //     <ListboxItem className="py-2" key="edit">
-    //       Edit file
-    //     </ListboxItem>
-    //   </Listbox>
-    // </div>
     <div className="pt-4 p-8 flex w-full h-full gap-8 ">
       <DashboardMenu selectedKey={selectedKey} />
       <DashboardContext pageName={selectedKey}>

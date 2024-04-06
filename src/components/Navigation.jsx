@@ -27,15 +27,6 @@ export const Navigation = (props) => {
       <NavbarContent justify="end">
         {props.isLoggedIn ? (
           <NavbarItem>
-            {/* <Button
-              as={Link}
-              color="primary"
-              href="#"
-              variant="flat"
-              onClick={() => SignOut()}
-            >
-              Sign Out
-            </Button> */}
             <Dropdown className="bg-black">
               <DropdownTrigger>
                 <Avatar isBordered name={localStorage.getItem("username")} />
