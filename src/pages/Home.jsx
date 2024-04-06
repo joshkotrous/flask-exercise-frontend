@@ -1,6 +1,4 @@
-import { React, useEffect } from "react";
 import { Button, Link } from "@nextui-org/react";
-import Dashboard from "./Dashboard";
 import { useNavigate } from "react-router-dom";
 
 export const Home = (props) => {

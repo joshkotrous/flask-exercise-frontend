@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Input, Button } from "@nextui-org/react";
 import Cookies from "js-cookie";
 import { GetUserInfo, UpdateUserInfo } from "../hooks/GetUserInfo";

@@ -1,12 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Input,
-  Button,
-  Avatar,
-} from "@nextui-org/react";
+import { Card, CardHeader, CardBody, Input, Button } from "@nextui-org/react";
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
 
@@ -14,7 +7,7 @@ import { FileUploader } from "react-drag-drop-files";
 
 import { IoMdPhotos } from "react-icons/io";
 
-import { GetAllPosts, CreatePost, LikePost } from "../hooks/Posts";
+import { GetAllPosts, CreatePost } from "../hooks/Posts";
 import Cookies from "js-cookie";
 import Post from "./Post";
 

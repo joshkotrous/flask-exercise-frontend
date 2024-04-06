@@ -1,5 +1,5 @@
-import { React, useState } from "react";
-import { Input, Button, user } from "@nextui-org/react";
+import { useState } from "react";
+import { Input, Button } from "@nextui-org/react";
 import { FaCheck } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Auth } from "../hooks/Auth";

@@ -1,5 +1,4 @@
-import { React, useState, useEffect } from "react";
-import { Listbox, ListboxItem, select } from "@nextui-org/react";
+import { useState, useEffect } from "react";
 import { checkIsLoggedIn } from "../hooks/Auth";
 import { useNavigate } from "react-router-dom";
 import DashboardMenu from "../components/DashboardMenu";
