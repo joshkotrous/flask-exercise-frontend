@@ -1,5 +1,3 @@
-import React from "react";
-
 export async function GetUserInfo(userId, token) {
   try {
     const response = await fetch(

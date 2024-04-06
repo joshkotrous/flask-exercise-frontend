@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -12,16 +11,11 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  Button,
 } from "@nextui-org/react";
-
-import { useNavigate } from "react-router-dom";
 
 import { SignOut } from "../hooks/Auth";
 
 export const Navigation = (props) => {
-  const navigateTo = useNavigate();
-
   return (
     <Navbar className="w-full">
       <NavbarBrand>

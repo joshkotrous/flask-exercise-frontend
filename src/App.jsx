@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { AppRoutes } from "./AppRoutes";
 import { Navigation } from "./components/Navigation";
 import { NextUIProvider } from "@nextui-org/react";
-import { BrowserRouter, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 function App() {

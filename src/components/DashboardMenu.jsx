@@ -1,4 +1,3 @@
-import React from "react";
 import { Listbox, ListboxItem } from "@nextui-org/react";
 
 const DashboardMenu = (props) => {

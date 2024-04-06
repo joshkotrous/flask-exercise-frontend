@@ -1,14 +1,6 @@
-import { React, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Input,
-  Button,
-  Avatar,
-  Image,
-} from "@nextui-org/react";
+import { Card, CardHeader, CardBody, Avatar, Image } from "@nextui-org/react";
 
 import { LikePost } from "../hooks/Posts";
 import Cookies from "js-cookie";
