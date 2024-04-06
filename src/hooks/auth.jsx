@@ -20,14 +20,17 @@ export async function Auth(
   };
   console.log(JSON.stringify(request));
   try {
-    const response = await fetch("http://127.0.0.1:5000/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(request),
-      cache: "default",
-    });
+    const response = await fetch(
+      process.env.REACT_APP_API_BASE_URL + "/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(request),
+        cache: "default",
+      }
+    );
     const data = await response.json();
     const token = data.token;
     const userId = data.userId;
@@ -44,14 +47,6 @@ export async function Auth(
     Cookies.set("userId", userId);
     console.log(Cookies.get("userId"));
     console.log("Token created: " + localStorage.getItem("token"));
-    console.log(
-      "User Info: " +
-        localStorage.getItem("userId") +
-        " " +
-        localStorage.getItem("username") +
-        " " +
-        localStorage.getItem("userEmail")
-    );
     if (typeof navigate === "function") {
       navigate();
     }

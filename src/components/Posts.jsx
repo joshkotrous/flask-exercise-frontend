@@ -81,7 +81,7 @@ const Posts = () => {
               })}
           </div>
 
-          <div className="w-full flex items-center">
+          <div className="w-full flex items-stretch">
             <Popover placement="bottom" showArrow={true}>
               <PopoverTrigger>
                 <Button
@@ -99,7 +99,7 @@ const Posts = () => {
               </PopoverContent>
             </Popover>
             <Button
-              className="mt-4 w-fit h-fit self-end"
+              className="w-fit self-end"
               color="primary"
               onClick={() => {
                 console.log(JSON.stringify(files));

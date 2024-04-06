@@ -30,16 +30,18 @@ export const CreateAccount = () => {
     };
     console.log(JSON.stringify(request));
     try {
-      const response = await fetch("http://127.0.0.1:5000/api/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjcsIm5hbWUiOiJqb3NoIn0.59bAZ4Dv-g1aPLE9M6yApauBfYfRuZcvrM52B3xqdH8",
-        },
-        body: JSON.stringify(request),
-        cache: "default",
-      });
+      const response = await fetch(
+        process.env.REACT_APP_API_BASE_URL + "/users",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + process.env.REACT_API_API_KEY,
+          },
+          body: JSON.stringify(request),
+          cache: "default",
+        }
+      );
       console.log(response.status);
       Auth(email, password, null, props.setIsLoggedIn);
       navigateTo("/");

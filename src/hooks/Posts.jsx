@@ -21,14 +21,17 @@ export async function CreatePost(userId, content, token, attachments) {
   };
   console.log(request);
   try {
-    const response = await fetch("http://127.0.0.1:5000/api/posts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + token,
-      },
-      body: JSON.stringify(request),
-    });
+    const response = await fetch(
+      process.env.REACT_APP_API_BASE_URL + "/posts",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+        body: JSON.stringify(request),
+      }
+    );
     return response;
   } catch {}
 }
@@ -39,15 +42,18 @@ export async function LikePost(userId, postId, token) {
     post_id: postId,
   };
   try {
-    const response = await fetch("http://127.0.0.1:5000/api/posts/like", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      process.env.REACT_APP_API_BASE_URL + "/posts/like",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
 
-        Authorization: "Bearer " + token,
-      },
-      body: JSON.stringify(request),
-    });
+          Authorization: "Bearer " + token,
+        },
+        body: JSON.stringify(request),
+      }
+    );
     return response;
   } catch {}
 }
