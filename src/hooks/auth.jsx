@@ -1,5 +1,3 @@
-import { React, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 export async function Auth(
@@ -9,7 +7,6 @@ export async function Auth(
   setIsLoggedIn,
   navigate
 ) {
-  // const navigateTo = useNavigate();
   if (typeof setIsLoading === "function") {
     setIsLoading(true);
   }
@@ -18,7 +15,6 @@ export async function Auth(
     username: email,
     password: password,
   };
-  console.log(JSON.stringify(request));
   try {
     const response = await fetch(
       process.env.REACT_APP_API_BASE_URL + "/login",
@@ -34,19 +30,12 @@ export async function Auth(
     const data = await response.json();
     const token = data.token;
     const userId = data.userId;
-    const userEmail = data.email;
-    const username = data.username;
     if (typeof setIsLoggedIn === "function") {
       setIsLoggedIn(true);
     }
-    localStorage.setItem("token", token);
-    localStorage.setItem("userId", userId);
-    localStorage.setItem("userEmail", userEmail);
-    localStorage.setItem("username", username);
+
     Cookies.set("token", token);
     Cookies.set("userId", userId);
-    console.log(Cookies.get("userId"));
-    console.log("Token created: " + localStorage.getItem("token"));
     if (typeof navigate === "function") {
       navigate();
     }
