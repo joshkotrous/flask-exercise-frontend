@@ -2,16 +2,12 @@ import { useState, useEffect } from "react";
 import { Card, CardHeader, CardBody, Input, Button } from "@nextui-org/react";
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
-
 import { FileUploader } from "react-drag-drop-files";
-
 import { IoMdPhotos } from "react-icons/io";
-
 import { GetAllPosts, CreatePost } from "../hooks/Posts";
-import Cookies from "js-cookie";
 import Post from "./Post";
 
-const Posts = () => {
+const Posts = (props) => {
   const [posts, setPosts] = useState();
   const [newPostContent, setNewPostContent] = useState();
   const [refresh, setRefresh] = useState(false);
@@ -30,10 +26,7 @@ const Posts = () => {
     setFiles(newFiles);
   };
   const getPosts = async () => {
-    const posts = await GetAllPosts(
-      Cookies.get("userId"),
-      Cookies.get("token")
-    );
+    const posts = await GetAllPosts(props.userId, props.token);
     setPosts(posts);
   };
   const handleRefresh = () => {
@@ -95,11 +88,10 @@ const Posts = () => {
               className="w-fit self-end"
               color="primary"
               onClick={() => {
-                console.log(JSON.stringify(files));
                 CreatePost(
-                  Cookies.get("userId"),
+                  props.userId,
                   newPostContent,
-                  Cookies.get("token"),
+                  props.token,
                   JSON.stringify(files)
                 );
                 setNewPostContent("");
@@ -122,10 +114,11 @@ const Posts = () => {
                 author={data.author}
                 content={data.content}
                 likes={data.likes}
-                token={Cookies.get("token")}
+                token={props.token}
                 isLiked={data.is_liked}
                 onRefresh={handleRefresh}
                 attachments={data.attachments}
+                userId={props.userId}
               />
             );
           })}

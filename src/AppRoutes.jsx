@@ -28,15 +28,25 @@ export const AppRoutes = (props) => {
       />
       <Route
         path="/posts"
-        element={<Dashboard isLoggedIn={props.isLoggedIn} />}
+        element={
+          <Dashboard
+            isLoggedIn={props.isLoggedIn}
+            token={props.token}
+            userId={props.userId}
+          />
+        }
       />
       <Route
         path="/settings"
-        element={<Dashboard isLoggedIn={props.isLoggedIn} />}
+        element={
+          <Dashboard isLoggedIn={props.isLoggedIn} token={props.token} />
+        }
       />
       <Route
         path="/users"
-        element={<Dashboard isLoggedIn={props.isLoggedIn} />}
+        element={
+          <Dashboard isLoggedIn={props.isLoggedIn} token={props.token} />
+        }
       />
     </Routes>
   );

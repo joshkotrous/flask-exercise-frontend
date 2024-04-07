@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Input, Button } from "@nextui-org/react";
-import Cookies from "js-cookie";
 import { GetUserInfo, UpdateUserInfo } from "../hooks/GetUserInfo";
 
 const Settings = () => {
@@ -14,11 +13,8 @@ const Settings = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
 
-  const getInfo = async () => {
-    const users = await GetUserInfo(
-      Cookies.get("userId"),
-      Cookies.get("token")
-    );
+  const getInfo = async (props) => {
+    const users = await GetUserInfo(props.useId, props.token);
     setUserInfo(users);
   };
 
@@ -102,8 +98,8 @@ const Settings = () => {
         color="primary"
         onClick={() =>
           UpdateUserInfo(
-            Cookies.get("userId"),
-            Cookies.get("token"),
+            props.userId,
+            props.token,
             userInfo.username,
             userInfo.email,
             userInfo.first_name,

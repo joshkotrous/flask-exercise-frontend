@@ -14,6 +14,7 @@ function App() {
     if (Cookies.get("token") != null) {
       setIsLoggedIn(true);
       console.log(Cookies.get("token"));
+      console.log(Cookies.get("userId"));
     }
   };
 
@@ -28,6 +29,7 @@ function App() {
       <AppRoutes
         setIsLoggedIn={setIsLoggedIn}
         isLoggedIn={isLoggedIn}
+        userId={Cookies.get("userId")}
         token={Cookies.get("token")}
       />
     </NextUIProvider>

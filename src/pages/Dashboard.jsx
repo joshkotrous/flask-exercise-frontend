@@ -35,11 +35,11 @@ const Dashboard = (props) => {
       <DashboardContext pageName={selectedKey}>
         {(() => {
           if (selectedKey === "posts") {
-            return <Posts />;
+            return <Posts token={props.token} userId={props.userId} />;
           } else if (selectedKey === "settings") {
-            return <Settings />;
+            return <Settings token={props.token} userId={props.userId} />;
           } else if (selectedKey === "users") {
-            return <Users />;
+            return <Users token={props.token} userId={props.userId} />;
           }
         })()}
       </DashboardContext>
