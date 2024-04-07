@@ -17,7 +17,7 @@ export async function Auth(
   };
   try {
     const response = await fetch(
-      process.env.REACT_APP_API_BASE_URL + "/login",
+      import.meta.env.VITE_REACT_APP_API_BASE_URL + "/login",
       {
         method: "POST",
         headers: {

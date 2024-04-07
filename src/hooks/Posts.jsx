@@ -1,11 +1,14 @@
 export async function GetAllPosts(userId, token) {
   try {
-    const response = await fetch("http://127.0.0.1:5000/api/posts/" + userId, {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
+    const response = await fetch(
+      import.meta.env.VITE_REACT_APP_API_BASE_URL + "/posts/" + userId,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
 
     return response.json();
   } catch {}
@@ -20,7 +23,7 @@ export async function CreatePost(userId, content, token, attachments) {
   console.log(request);
   try {
     const response = await fetch(
-      process.env.REACT_APP_API_BASE_URL + "/posts",
+      import.meta.env.VITE_REACT_APP_API_BASE_URL + "/posts",
       {
         method: "POST",
         headers: {
@@ -41,7 +44,7 @@ export async function LikePost(userId, postId, token) {
   };
   try {
     const response = await fetch(
-      process.env.REACT_APP_API_BASE_URL + "/posts/like",
+      import.meta.env.VITE_REACT_APP_API_BASE_URL + "/posts/like",
       {
         method: "POST",
         headers: {
