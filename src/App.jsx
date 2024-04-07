@@ -25,7 +25,11 @@ function App() {
     <NextUIProvider navigate={navigate}>
       <Navigation isLoggedIn={isLoggedIn} />
 
-      <AppRoutes setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
+      <AppRoutes
+        setIsLoggedIn={setIsLoggedIn}
+        isLoggedIn={isLoggedIn}
+        token={Cookies.get("token")}
+      />
     </NextUIProvider>
   );
 }

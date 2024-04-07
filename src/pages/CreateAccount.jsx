@@ -31,7 +31,7 @@ export const CreateAccount = () => {
     console.log(JSON.stringify(request));
     try {
       const response = await fetch(
-        process.env.REACT_APP_API_BASE_URL + "/users",
+        import.meta.env.VITE_REACT_APP_API_BASE_URL + "/users",
         {
           method: "POST",
           headers: {

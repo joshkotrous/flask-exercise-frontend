@@ -1,7 +1,7 @@
 export async function GetUserInfo(userId, token) {
   try {
     const response = await fetch(
-      process.env.REACT_APP_API_BASE_URL + "/users/" + userId,
+      import.meta.env.VITE_REACT_APP_API_BASE_URL + "/users/" + userId,
       {
         method: "GET",
         headers: {
@@ -36,7 +36,7 @@ export async function UpdateUserInfo(
       isLoading(true);
     }
     const response = await fetch(
-      process.env.REACT_APP_API_BASE_URL + "/users/" + userId,
+      import.meta.env.VITE_REACT_APP_API_BASE_URL + "/users/" + userId,
       {
         method: "POST",
         headers: {
@@ -58,7 +58,7 @@ export async function UpdateUserInfo(
 export async function GetAllUsers(token) {
   try {
     const response = await fetch(
-      process.env.REACT_APP_API_BASE_URL + "/users",
+      import.meta.env.VITE_REACT_APP_API_BASE_URL + "/users",
       {
         method: "GET",
         headers: {
