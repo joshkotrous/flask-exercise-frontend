@@ -3,9 +3,9 @@ import Cookies from "js-cookie";
 export async function Auth(
   email,
   password,
-  setIsLoading,
   setIsLoggedIn,
-  navigate
+  setLoginFailed,
+  setLoginErrorMessage
 ) {
   if (typeof setIsLoading === "function") {
     setIsLoading(true);
@@ -28,6 +28,10 @@ export async function Auth(
       }
     );
     const data = await response.json();
+    console.log(data);
+    if (response.status == 400) {
+      throw new Error(data.message);
+    }
     const token = data.token;
     const userId = data.userId;
     if (typeof setIsLoggedIn === "function") {
@@ -36,17 +40,18 @@ export async function Auth(
 
     Cookies.set("token", token);
     Cookies.set("userId", userId);
-    if (typeof navigate === "function") {
-      navigate();
-    }
+
     // Handle successful response here
   } catch (error) {
+    if (typeof setLoginFailed === "function") {
+      setLoginFailed(true);
+    }
+    if (typeof setLoginErrorMessage === "function") {
+      setLoginErrorMessage(error.message);
+    }
     console.error("Error:", error);
     // Handle error here
   } finally {
-    if (typeof setIsLoading === "function") {
-      setIsLoading(true);
-    }
   }
 }
 

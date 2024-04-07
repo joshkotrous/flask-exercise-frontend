@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     checkLoggedIn();
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <NextUIProvider navigate={navigate}>
