@@ -3,7 +3,6 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { Card, CardHeader, CardBody, Avatar, Image } from "@nextui-org/react";
 
 import { LikePost } from "../hooks/Posts";
-import Cookies from "js-cookie";
 
 const Post = (props) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -53,7 +52,7 @@ const Post = (props) => {
               onMouseLeave={handleMouseLeave}
               className="text-red-500 pt-1 size-6"
               onClick={() => {
-                LikePost(Cookies.get("userId"), props.postId, props.token);
+                LikePost(props.userId, props.postId, props.token);
                 props.onRefresh();
               }}
             />

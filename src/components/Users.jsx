@@ -8,13 +8,12 @@ import {
   TableCell,
 } from "@nextui-org/react";
 import { GetAllUsers } from "../hooks/GetUserInfo";
-import Cookies from "js-cookie";
 
-const Users = () => {
+const Users = (props) => {
   const [users, setUsers] = useState();
 
   const getUsers = async () => {
-    const users = await GetAllUsers(Cookies.get("token"));
+    const users = await GetAllUsers(props.token);
     setUsers(users);
   };
 
